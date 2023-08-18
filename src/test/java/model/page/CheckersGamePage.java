@@ -29,7 +29,7 @@ public class CheckersGamePage extends BaseModel {
     private static final By RESTART_LOCATOR = By.cssSelector("a[href='./']");
 
     public CheckersGamePage(WebDriver driver) {
-        super(driver, ProjectDataUtils.CHECKERS_GAME_URL);
+        super(driver);
     }
 
     public String getHeader() {

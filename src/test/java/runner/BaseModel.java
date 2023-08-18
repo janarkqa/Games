@@ -12,9 +12,8 @@ public abstract class BaseModel {
     private final WebDriver driver;
     private final Map<Integer, WebDriverWait> waitMap = new HashMap<>();
 
-    public BaseModel(WebDriver driver, String url) {
+    public BaseModel(WebDriver driver) {
         this.driver = driver;
-        this.driver.get(url);
     }
 
     public WebDriver getDriver() {

@@ -2,6 +2,7 @@ package tests;
 
 import model.page.CheckersGamePage;
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import runner.BaseTest;
 import runner.ProjectDataUtils;
@@ -32,6 +33,11 @@ public class CheckersGameTest extends BaseTest {
         }
     }
 
+    @BeforeMethod
+    private void getUrl() {
+        getDriver().get(ProjectDataUtils.CHECKERS_GAME_URL);
+    }
+
     @Test
     public void testNavigationToCheckers() {
         final CheckersGamePage checkersGamePage = new CheckersGamePage(getDriver());
@@ -42,7 +48,7 @@ public class CheckersGameTest extends BaseTest {
     }
 
     @Test(dependsOnMethods = "testNavigationToCheckers")
-    public void testFiveLegalMovesAsOrange() throws InterruptedException {
+    public void testFiveLegalMovesAsOrange() {
         CheckersGamePage checkersGamePage = new CheckersGamePage(getDriver())
                 .moveDraught(0, 2, 1, 3)
                 .confirmCanTakeNextStep()
